@@ -34,7 +34,7 @@ public class ListViewFragment extends Fragment {
         ListView listView = (ListView) view.findViewById(R.id.listView);
         ArrayList<UserModel> userModels = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            userModels.add(new UserModel("Name " + i, "LastName " + i, i, new ContactModel[]{new ContactModel("(096) 7231234", "work")}, new ContactModel[]{new ContactModel("email@gmail.com", "work")}));
+//            userModels.add(new UserModel("Name " + i, "LastName " + i, i, new ContactModel[]{new ContactModel("(096) 7231234", "work")}, new ContactModel[]{new ContactModel("email@gmail.com", "work")}));
         }
         listView.setAdapter(new AdapterForDialogListView(getActivity().getApplicationContext(), userModels));
         return view;

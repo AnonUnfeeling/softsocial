@@ -16,10 +16,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmList;
 import jdroidcoder.ua.sgsocialnetwork.R;
 import jdroidcoder.ua.sgsocialnetwork.fragments.GlobalSpamFragment;
 import jdroidcoder.ua.sgsocialnetwork.fragments.ListViewFragment;
 import jdroidcoder.ua.sgsocialnetwork.fragments.ProfileFragment;
+import jdroidcoder.ua.sgsocialnetwork.models.ContactModel;
+import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -27,6 +34,7 @@ public class MainActivity extends AppCompatActivity
     private ProfileFragment profileFragment;
     private FloatingActionButton fab;
     private FragmentManager fragmentManager = null;
+    public static Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +59,23 @@ public class MainActivity extends AppCompatActivity
             fragmentManager = getSupportFragmentManager();
         }
         showContactList();
+
+        RealmList<ContactModel> emails = new RealmList<>();
+        emails.add(new ContactModel("email@email", "work"));
+
+        RealmList<ContactModel> phones = new RealmList<>();
+        phones.add(new ContactModel("(096) 9824168", "personal"));
+
+        UserModel userModel = new UserModel("Ivan", "Petro", "Developer", 15, phones, emails);
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        realm = Realm.getInstance(config);
+//        realm.beginTransaction();
+//        realm.insert(userModel);
+//        realm.commitTransaction();
+        System.out.println(realm.where(UserModel.class).findFirst());
     }
 
     private void showContactList() {

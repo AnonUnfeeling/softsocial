@@ -1,22 +1,32 @@
 package jdroidcoder.ua.sgsocialnetwork.models;
 
+import java.util.ArrayList;
+
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by Admin on 29.11.2016.
  */
-
-public class UserModel {
+public class UserModel extends RealmObject {
     private String name;
     private String lastName;
+    private String position;
     private int age;
-    private ContactModel[] phones;
-    private ContactModel[] emaels;
+    private RealmList<ContactModel> phones;
+    private RealmList<ContactModel> emails;
 
-    public UserModel(String name, String lastName, int age, ContactModel[] phones, ContactModel[] emaels) {
+    public UserModel() {
+    }
+
+    public UserModel(String name, String lastName, String position, int age, RealmList<ContactModel> phones, RealmList<ContactModel> emails) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
         this.phones = phones;
-        this.emaels = emaels;
+        this.emails = emails;
+        this.position = position;
     }
 
     public String getName() {
@@ -43,19 +53,39 @@ public class UserModel {
         this.age = age;
     }
 
-    public ContactModel[] getPhones() {
+    public RealmList<ContactModel> getPhones() {
         return phones;
     }
 
-    public void setPhones(ContactModel[] phones) {
+    public void setPhones(RealmList<ContactModel> phones) {
         this.phones = phones;
     }
 
-    public ContactModel[] getEmaels() {
-        return emaels;
+    public RealmList<ContactModel> getEmails() {
+        return emails;
     }
 
-    public void setEmaels(ContactModel[] emaels) {
-        this.emaels = emaels;
+    public void setEmails(RealmList<ContactModel> emails) {
+        this.emails = emails;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", position='" + position + '\'' +
+                ", age=" + age +
+                ", phones=" + phones +
+                ", emails=" + emails +
+                '}';
     }
 }

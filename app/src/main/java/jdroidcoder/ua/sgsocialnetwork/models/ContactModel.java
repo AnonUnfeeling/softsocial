@@ -1,15 +1,19 @@
 package jdroidcoder.ua.sgsocialnetwork.models;
 
+import io.realm.RealmObject;
+
 /**
  * Created by Admin on 29.11.2016.
  */
-public class ContactModel {
+public class ContactModel extends RealmObject{
     private String contact;
     private String identificate;
 
+    public ContactModel() {
+    }
+
     public ContactModel(String contact, String identificate) {
         this.contact = contact;
-
         this.identificate = identificate;
     }
 
