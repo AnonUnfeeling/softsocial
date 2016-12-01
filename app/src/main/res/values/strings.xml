@@ -30,5 +30,6 @@
     <string name="log_in_with_vk">Log in with VK</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">Next</string>
+    <string name="login_activity_label">or Sing Up with</string>
 
 </resources>
