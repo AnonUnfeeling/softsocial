@@ -1,4 +1,4 @@
-package jdroidcoder.ua.sgsocialnetwork.fragments;
+package jdroidcoder.ua.sgsocialnetwork.jdroidcoder.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,9 +11,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 
-import jdroidcoder.ua.sgsocialnetwork.adapters.AdapterForDialogListView;
-import jdroidcoder.ua.sgsocialnetwork.models.ContactModel;
-import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.adapters.AdapterForDialogListView;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.UserModel;
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
 
 /**

@@ -1,11 +1,9 @@
-package jdroidcoder.ua.sgsocialnetwork.activitys;
+package jdroidcoder.ua.sgsocialnetwork.jdroidcoder.activitys;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,11 +17,11 @@ import android.view.MenuItem;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmList;
-import jdroidcoder.ua.sgsocialnetwork.fragments.GlobalSpamFragment;
-import jdroidcoder.ua.sgsocialnetwork.fragments.ListViewFragment;
-import jdroidcoder.ua.sgsocialnetwork.fragments.ProfileFragment;
-import jdroidcoder.ua.sgsocialnetwork.models.ContactModel;
-import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.fragments.GlobalSpamFragment;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.fragments.ListViewFragment;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.fragments.ProfileFragment;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.ContactModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.UserModel;
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
 
 public class MainActivity extends AppCompatActivity

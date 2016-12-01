@@ -1,4 +1,4 @@
-package jdroidcoder.ua.sgsocialnetwork.adapters;
+package jdroidcoder.ua.sgsocialnetwork.jdroidcoder.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,22 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
-
-import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.ContactModel;
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
 
 /**
  * Created by Admin on 29.11.2016.
  */
-public class AdapterForDialogListView extends BaseAdapter {
-    private ArrayList<UserModel> userModels;
+public class AdapterForProfileContact extends BaseAdapter{
+    private ArrayList<ContactModel> userModels;
     private LayoutInflater layoutInflater;
-
-    public AdapterForDialogListView(Context context, ArrayList<UserModel> userModels) {
-        this.userModels = userModels;
+    public AdapterForProfileContact(Context context, ArrayList<ContactModel> contactModels) {
+        this.userModels = contactModels;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -42,9 +39,9 @@ public class AdapterForDialogListView extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = layoutInflater.inflate(R.layout.dialog_listview_style, parent, false);
-        ((TextView) convertView.findViewById(R.id.userNameTextView)).setText(userModels.get(position).getName());
-        ((TextView) convertView.findViewById(R.id.userLastNameTextView)).setText(userModels.get(position).getLastName());
+        convertView = layoutInflater.inflate(R.layout.contactinfo_listview_style, parent, false);
+        ((TextView) convertView.findViewById(R.id.numberPhone)).setText(userModels.get(position).getContact());
+        ((TextView) convertView.findViewById(R.id.identificateNumberPhone)).setText(userModels.get(position).getIdentificate());
         return convertView;
     }
 }

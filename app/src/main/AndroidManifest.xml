@@ -30,7 +30,7 @@
                 android:value="jdroidcoder.ua.sgsocialnetwork.sgMessenger.view.activities.AuthorizationActivity" />
         </activity>
 
-        <activity android:name="jdroidcoder.ua.sgsocialnetwork.activitys.MainActivity"
+        <activity android:name="jdroidcoder.ua.sgsocialnetwork.jdroidcoder.activitys.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

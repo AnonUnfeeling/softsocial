@@ -1,4 +1,4 @@
-package jdroidcoder.ua.sgsocialnetwork.models;
+package jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models;
 
 import io.realm.RealmObject;
 

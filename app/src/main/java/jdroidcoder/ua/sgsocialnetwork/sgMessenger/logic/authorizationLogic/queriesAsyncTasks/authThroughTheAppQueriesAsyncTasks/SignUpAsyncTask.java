@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 
-import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.UserModel;
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.dataBase.retrofit.RetrofitProvider;
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.logic.authorizationLogic.callbacks.loginInAppCallbacks.TokenReceiveCallback;
 

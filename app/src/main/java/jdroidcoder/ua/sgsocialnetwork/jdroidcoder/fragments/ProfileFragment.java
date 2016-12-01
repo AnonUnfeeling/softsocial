@@ -1,4 +1,4 @@
-package jdroidcoder.ua.sgsocialnetwork.fragments;
+package jdroidcoder.ua.sgsocialnetwork.jdroidcoder.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,10 +9,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import io.realm.Realm;
-
-import jdroidcoder.ua.sgsocialnetwork.activitys.MainActivity;
-import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.activitys.MainActivity;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.UserModel;
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
 
 /**

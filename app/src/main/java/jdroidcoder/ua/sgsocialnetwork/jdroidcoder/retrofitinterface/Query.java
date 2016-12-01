@@ -1,8 +1,8 @@
-package jdroidcoder.ua.sgsocialnetwork.retrofitinterface;
+package jdroidcoder.ua.sgsocialnetwork.jdroidcoder.retrofitinterface;
 
 import java.util.Map;
 
-import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.UserModel;
 import retrofit2.Call;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;

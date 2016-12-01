@@ -1,8 +1,8 @@
 package jdroidcoder.ua.sgsocialnetwork.sgMessenger.view.presenters;
 
 import io.realm.RealmList;
-import jdroidcoder.ua.sgsocialnetwork.models.ContactModel;
-import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.ContactModel;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.models.UserModel;
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.logic.authorizationLogic.queriesAsyncTasks.authThroughTheAppQueriesAsyncTasks.SignUpAsyncTask;
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.view.activities.RegistrationActivity;
 

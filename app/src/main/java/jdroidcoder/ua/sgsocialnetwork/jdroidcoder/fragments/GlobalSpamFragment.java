@@ -1,4 +1,4 @@
-package jdroidcoder.ua.sgsocialnetwork.fragments;
+package jdroidcoder.ua.sgsocialnetwork.jdroidcoder.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

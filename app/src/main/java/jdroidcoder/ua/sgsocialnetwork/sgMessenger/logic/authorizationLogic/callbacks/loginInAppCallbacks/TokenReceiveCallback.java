@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
-import jdroidcoder.ua.sgsocialnetwork.activitys.MainActivity;
+import jdroidcoder.ua.sgsocialnetwork.jdroidcoder.activitys.MainActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
