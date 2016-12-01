@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -7,17 +8,25 @@
     android:background="@color/backgroundColor"
     tools:context=".view.activities.AuthorizationActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/authoToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:clipToPadding="false"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <EditText
         android:id="@+id/emailOrNumberEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/authoToolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:padding="15dp"
         android:paddingLeft="16dp" />
 
     <EditText
@@ -30,6 +39,7 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:padding="15dp"
         android:paddingLeft="16dp" />
 
     <TextView
@@ -95,7 +105,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-
             android:background="@drawable/send_spam_button_style"
             android:onClick="startRegistrationActivity"
             android:text="@string/singup"

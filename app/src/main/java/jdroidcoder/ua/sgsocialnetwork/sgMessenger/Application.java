@@ -18,13 +18,11 @@ public class Application extends android.app.Application {
 //        }
 //    };
 
-
     @Override
     public void onCreate() {
         super.onCreate();
         //vkAccessTokenTracker.startTracking();
         VKSdk.initialize(this);
         FacebookSdk.sdkInitialize(this);
-
     }
 }

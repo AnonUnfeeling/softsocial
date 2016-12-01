@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -42,8 +43,15 @@ public class AuthorizationActivity extends AppCompatActivity  {
         checkAuthorizationStatus();
         setContentView(R.layout.activity_authorization);
         setUpViews();
+        setUpToolbar();
         authorizationActivityPresenter = new AuthorizationActivityPresenter(this);
+    }
 
+    private void setUpToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.authoToolbar);
+        toolbar.setTitle("Authorization");
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+        setSupportActionBar(toolbar);
     }
 
     private void requestAppPermissions(){
@@ -61,7 +69,6 @@ public class AuthorizationActivity extends AppCompatActivity  {
         callbackManager = CallbackManager.Factory.create();
         AppEventsLogger.activateApp(this);
     }
-
 
     private void checkAuthorizationStatus(){
         SharedPreferences authPreferences = getSharedPreferences(AUTH_PREF, 0);
@@ -106,8 +113,6 @@ public class AuthorizationActivity extends AppCompatActivity  {
         VKSdk.login(this, scope);
     }
 
-
-
     private boolean checkFieldsOnEmptiness(){
         return !("".equals(emailOrNumberEditText.getText().toString()) || "".equals(passwordEditText.getText().toString()));
     }
@@ -131,7 +136,4 @@ public class AuthorizationActivity extends AppCompatActivity  {
     public EditText getPasswordEditText() {
         return passwordEditText;
     }
-
-
-
 }

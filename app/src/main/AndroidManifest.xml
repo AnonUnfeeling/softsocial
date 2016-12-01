@@ -14,7 +14,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".view.activities.AuthorizationActivity">
+        <activity android:name=".view.activities.AuthorizationActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,13 +30,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="jdroidcoder.ua.sgsocialnetwork.sgMessenger.view.activities.AuthorizationActivity" />
         </activity>
-
         <activity android:name="jdroidcoder.ua.sgsocialnetwork.jdroidcoder.activitys.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
         <activity
             android:name="com.vk.sdk.VKServiceActivity"
             android:label="ServiceActivity"

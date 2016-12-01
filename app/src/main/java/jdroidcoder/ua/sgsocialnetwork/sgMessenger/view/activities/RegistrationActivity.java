@@ -3,11 +3,13 @@ package jdroidcoder.ua.sgsocialnetwork.sgMessenger.view.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
@@ -16,15 +18,12 @@ import jdroidcoder.ua.sgsocialnetwork.sgMessenger.view.fragments.registrationFra
 import jdroidcoder.ua.sgsocialnetwork.sgMessenger.view.presenters.RegistrationActivityPresenter;
 
 public class RegistrationActivity extends AppCompatActivity {
-
     private Menu registrationMenu;
     private RegistrationActivityPresenter registrationActivityPresenter;
     private RegistrationPersonalInfoFragment registrationPersonalInfoFragment;
     private RegistrationContactInfoFragment registrationContactInfoFragment;
-
-    /**
-     * TODO. Change to google map location chooser (wtf?)
-     **/
+    private FloatingActionButton floatingActionButton;
+    private boolean isMoveNext = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +31,7 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         setUpViews();
         registrationActivityPresenter = new RegistrationActivityPresenter(this);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
     }
 
     private void setUpViews() {
@@ -39,7 +39,7 @@ public class RegistrationActivity extends AppCompatActivity {
         setUpToolbar();
     }
 
-    private void openRegistrationPersonalInfoFragment(){
+    private void openRegistrationPersonalInfoFragment() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         registrationPersonalInfoFragment = new RegistrationPersonalInfoFragment();
         fragmentTransaction.replace(R.id.registrationFragmentsContainer, registrationPersonalInfoFragment);
@@ -47,17 +47,11 @@ public class RegistrationActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-
-
-
     private void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.registrationToolbar);
         toolbar.setTitle("Registration");
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
     }
 
     @Override
@@ -78,47 +72,33 @@ public class RegistrationActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (R.id.nextMenuButton == item.getItemId()) {
             nextMenuButtonAction();
-        } else if (R.id.okMenuButton == item.getItemId()){
+        } else if (R.id.okMenuButton == item.getItemId()) {
             okMenuButtonAction();
-        } else if (R.id.backMenuButton == item.getItemId()){
-            backMenuButtonAction();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void nextMenuButtonAction(){
-        if (checkPersonalFieldsOnEmptiness()) {
-            //TODO Save data from fragment
-            registrationActivityPresenter.savePersonalInfoIntoUserModel();
-            openRegistrationContactInfoFragment();
-            registrationMenu.findItem(R.id.nextMenuButton).setVisible(false);
-            registrationMenu.findItem(R.id.okMenuButton).setVisible(true);
-            registrationMenu.findItem(R.id.backMenuButton).setVisible(true);
-        } else {
-            Toast.makeText(this, "Please, fill all fields", Toast.LENGTH_SHORT)
-                    .show();
-        }
+    private void nextMenuButtonAction() {
+        moveNext();
     }
 
-    private void openRegistrationContactInfoFragment(){
+    private void openRegistrationContactInfoFragment() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         registrationContactInfoFragment = new RegistrationContactInfoFragment();
         fragmentTransaction.replace(R.id.registrationFragmentsContainer, registrationContactInfoFragment);
         fragmentTransaction.commit();
     }
 
-
     private boolean checkPersonalFieldsOnEmptiness() {
-        return (!"".equals(registrationPersonalInfoFragment.getUserFirstNameEditText().getText().toString()) ||
-                !"".equals(registrationPersonalInfoFragment.getUserLastNameEditText().getText().toString()) ||
-                !"".equals(registrationPersonalInfoFragment.getUserDateOfBirthEditText().getText().toString()) ||
+        return (!"".equals(registrationPersonalInfoFragment.getUserFirstNameEditText().getText().toString()) &&
+                !"".equals(registrationPersonalInfoFragment.getUserLastNameEditText().getText().toString()) &&
+                !"".equals(registrationPersonalInfoFragment.getUserDateOfBirthEditText().getText().toString()) &&
                 !"".equals(registrationPersonalInfoFragment.getUserPositionEditText().getText().toString()));
     }
 
     private void okMenuButtonAction() {
         if (checkContactFieldsOnEmptiness()) {
-            if(checkPassword()){
-                //TODO Save data from fragment
+            if (checkPassword()) {
                 registrationActivityPresenter.signUp();
             } else {
                 Toast.makeText(this, "Wrong confirmation password", Toast.LENGTH_SHORT)
@@ -135,21 +115,22 @@ public class RegistrationActivity extends AppCompatActivity {
                 !"".equals(registrationContactInfoFragment.getUserPasswordEditText().getText().toString()));
     }
 
-    private boolean checkPassword(){
+    private boolean checkPassword() {
         return registrationContactInfoFragment.getUserConfirmPasswordEditText().getText().toString()
                 .equals(registrationContactInfoFragment.getUserPasswordEditText().getText().toString());
     }
 
-    private void backMenuButtonAction(){
-        getSupportFragmentManager().popBackStack();
-        registrationMenu.findItem(R.id.nextMenuButton).setVisible(true);
-        registrationMenu.findItem(R.id.okMenuButton).setVisible(false);
-        registrationMenu.findItem(R.id.backMenuButton).setVisible(false);
-    }
-
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (isMoveNext) {
+            getSupportFragmentManager().popBackStack();
+            registrationMenu.findItem(R.id.nextMenuButton).setVisible(true);
+            registrationMenu.findItem(R.id.okMenuButton).setVisible(false);
+            openRegistrationPersonalInfoFragment();
+            isMoveNext = false;
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public RegistrationPersonalInfoFragment getRegistrationPersonalInfoFragment() {
@@ -158,5 +139,26 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public RegistrationContactInfoFragment getRegistrationContactInfoFragment() {
         return registrationContactInfoFragment;
+    }
+
+    public void nextFloatingButton(View view) {
+        if (!isMoveNext) {
+            moveNext();
+        } else {
+            okMenuButtonAction();
+        }
+    }
+
+    private void moveNext() {
+        if (checkPersonalFieldsOnEmptiness()) {
+            isMoveNext = true;
+            registrationActivityPresenter.savePersonalInfoIntoUserModel();
+            openRegistrationContactInfoFragment();
+            registrationMenu.findItem(R.id.nextMenuButton).setVisible(false);
+            registrationMenu.findItem(R.id.okMenuButton).setVisible(true);
+        } else {
+            Toast.makeText(this, "Please, fill all fields", Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 }
