@@ -13,20 +13,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import java.util.ArrayList;
+import android.view.MenuItem;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmList;
-import jdroidcoder.ua.sgsocialnetwork.R;
 import jdroidcoder.ua.sgsocialnetwork.fragments.GlobalSpamFragment;
 import jdroidcoder.ua.sgsocialnetwork.fragments.ListViewFragment;
 import jdroidcoder.ua.sgsocialnetwork.fragments.ProfileFragment;
 import jdroidcoder.ua.sgsocialnetwork.models.ContactModel;
 import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity
         RealmList<ContactModel> phones = new RealmList<>();
         phones.add(new ContactModel("(096) 9824168", "personal"));
 
-        UserModel userModel = new UserModel("Ivan", "Petro", "Developer", 15, phones, emails);
+        UserModel userModel = new UserModel("Ivan", "Petro", "Developer", "15", phones, emails);
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .deleteRealmIfMigrationNeeded()

@@ -7,8 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import java.util.ArrayList;
-import jdroidcoder.ua.sgsocialnetwork.R;
+
 import jdroidcoder.ua.sgsocialnetwork.models.ContactModel;
+import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
 
 /**
  * Created by Admin on 29.11.2016.

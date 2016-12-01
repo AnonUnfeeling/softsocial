@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import jdroidcoder.ua.sgsocialnetwork.R;
+
 import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
 
 /**
  * Created by Admin on 29.11.2016.

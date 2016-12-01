@@ -1,29 +1,27 @@
 package jdroidcoder.ua.sgsocialnetwork.models;
 
-import java.util.ArrayList;
-
 import io.realm.RealmList;
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by Admin on 29.11.2016.
- */
+*/
 public class UserModel extends RealmObject {
+
     private String name;
     private String lastName;
     private String position;
-    private int age;
+    private String dateOfBirth;
+    private String password;
     private RealmList<ContactModel> phones;
     private RealmList<ContactModel> emails;
 
-    public UserModel() {
-    }
+    public UserModel() {}
 
-    public UserModel(String name, String lastName, String position, int age, RealmList<ContactModel> phones, RealmList<ContactModel> emails) {
+    public UserModel(String name, String lastName, String position, String dateOfBirth, RealmList<ContactModel> phones, RealmList<ContactModel> emails) {
         this.name = name;
         this.lastName = lastName;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.phones = phones;
         this.emails = emails;
         this.position = position;
@@ -45,12 +43,20 @@ public class UserModel extends RealmObject {
         this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public RealmList<ContactModel> getPhones() {
@@ -83,7 +89,8 @@ public class UserModel extends RealmObject {
                 "name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", position='" + position + '\'' +
-                ", age=" + age +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", password='" + password + '\'' +
                 ", phones=" + phones +
                 ", emails=" + emails +
                 '}';

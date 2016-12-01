@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import jdroidcoder.ua.sgsocialnetwork.R;
+import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
+
 
 /**
  * Created by Admin on 28.11.2016.

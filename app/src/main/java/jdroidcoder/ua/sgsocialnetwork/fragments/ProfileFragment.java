@@ -10,9 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import io.realm.Realm;
-import jdroidcoder.ua.sgsocialnetwork.R;
+
 import jdroidcoder.ua.sgsocialnetwork.activitys.MainActivity;
 import jdroidcoder.ua.sgsocialnetwork.models.UserModel;
+import jdroidcoder.ua.sgsocialnetwork.sgMessenger.R;
 
 /**
  * Created by Admin on 29.11.2016.
@@ -28,7 +29,7 @@ public class ProfileFragment extends Fragment {
 
         ((TextView) view.findViewById(R.id.userNameTextView)).setText(userModel.getName());
         ((TextView) view.findViewById(R.id.userLastNameTextView)).setText(userModel.getLastName());
-        ((TextView) view.findViewById(R.id.userAgeTextView)).setText(userModel.getAge()+" years old");
+        ((TextView) view.findViewById(R.id.userAgeTextView)).setText(userModel.getDateOfBirth()+" years old");
         ((TextView) view.findViewById(R.id.userPositionTextView)).setText(userModel.getPosition());
         if (userModel.getPhones().isEmpty()) {
             (view.findViewById(R.id.contactPhones)).setVisibility(View.GONE);
