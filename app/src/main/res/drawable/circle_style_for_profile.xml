@@ -6,7 +6,7 @@
                 android:left="20dp"
                 android:right="20dp"
                 android:top="20dp" />
-            <solid android:color="@color/buttonBackground" />
+            <solid android:color="@color/colorAccent" />
         </shape>
     </item>
 </layer-list>
